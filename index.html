@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        div:first-of-type {
+            background-color: burlywood;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        figure {
+            margin: 0;
+        }
+        button {
+            padding: 10px;
+        }
+        .songs {
+            margin-top: 40px;
+            display: flex;
+            flex-flow: column;
+            border: 1px solid black;
+        }
+        .songs button {
+            padding: 20px;
+            text-align: left;
+        }
+        .songs button:first-of-type,
+        .songs button:nth-of-type(3) {
+            background-color: burlywood;
+        }
+        .songs button:nth-of-type(2),
+        .songs button:nth-of-type(4) {
+            background-color: grey;
+        }
+    </style>
+    <body>
+        <div>
+            <figure>
+                <img src="./imgs/Super Mario.jpg" alt="" height="104px" />
+            </figure>
+            <section>
+                <audio id="myAudio" loop ontimeupdate="changeRangeVlaue()">
+                    <!-- <source
+                        src="Super Mario Bros (NES) Music - Overworld Theme.ogg"
+                    /> -->
+                    <source src="./songs/Super Mario.mp3" />
+                </audio>
+                <input
+                    id="time"
+                    oninput="changeTime()"
+                    type="range"
+                    value="1"
+                    step="0.1"
+                    min="0"
+                />
+                <br />
+                <button onclick="playAud()">play</button>
+                <button onclick="pauseAud()">pause</button>
+                <button onclick="stopAud()">stop</button>
+                <input
+                    oninput="changeVol()"
+                    type="range"
+                    value="1"
+                    step="0.1"
+                    min="0"
+                    max="1"
+                />
+            </section>
+        </div>
+        <div class="songs">
+            <button>Super Mario</button>
+            <button>Chicken invaders</button>
+            <button>Conan</button>
+            <button>Batman</button>
+        </div>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
